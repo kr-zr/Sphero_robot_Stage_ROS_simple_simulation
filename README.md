@@ -10,7 +10,7 @@ How to use:
 
 3) Type 'roslaunch sphero_formation simple_setup_sim.launch' in a new terminal.
 
-If you want to set a specific linear velocity and orientation for a robot follow these steps:
+If you want to set a specific linear velocity and orientation for the robot follow these steps:
 
 4a) Type 'rosrun sphero_formation simple_controller.py' in a new terminal.
 
@@ -21,7 +21,7 @@ change the current velocity. Type the desired orientation into the angular.z fie
 outside of this range, the robot will keep its current orientation. Note that although this field usually represents angular velocity,
 in this case it represents orientation, and NOT angular velocity of the robot.
 
-If you want to set a specific point in x-y space for a robot to go to follow these steps:
+If you want to set a specific point in x-y space for the robot to go to follow these steps:
 
 4b) Type 'rosrun sphero_formation xy_controller.py' in a new terminal.
 
