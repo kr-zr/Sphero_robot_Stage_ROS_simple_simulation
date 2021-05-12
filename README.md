@@ -23,7 +23,7 @@ in this case it represents orientation, and NOT angular velocity of the robot.
 
 If you want to set a specific point in x-y space for a robot to go to follow these steps:
 
-4b) Type 'rosrun spher_formation xy_controller.py' in a new terminal.
+4b) Type 'rosrun sphero_formation xy_controller.py' in a new terminal.
 
 5b) To set a point for a robot to go to, send geometry_msgs/Point messages to a topic named /sphero_referentna_tocka.
 Only x and y fields in the message matter, z field won't be read in the program.
