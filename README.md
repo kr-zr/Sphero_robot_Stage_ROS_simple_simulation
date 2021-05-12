@@ -1,4 +1,4 @@
-# Sphero_robot_Stage_ROS_simple_simulation
+# Sphero_robot_stage_ros_simple_simulation
 
 A package that simulates SpheroSPRK robot using stage_ros simulation. More information on stage_ros available here -> http://wiki.ros.org/stage_ros
 
