@@ -1,0 +1,141 @@
+class PID():
+    def __init__(self, Kp, Kd, Ki, T, max_val, min_value):
+
+        self.Kp = Kp
+        self.Kd = Kd
+        self.Ki = Ki
+        
+      
+        self.error = 0
+        self.reference = 0
+        self.prop = 0
+        self.derivative = 0
+        self.integral = 0
+        # *************************
+        
+        self.u = 0
+        #variables in which we save the values of errors that happened the step before
+        self.Derivator_prior = 0
+        self.Integral_prior = 0
+
+        #iteration time
+        self.T = T
+        self.flag = True
+        #granicne vrijednosti
+        self.max_val = max_val
+        self.min_val = min_value
+    
+
+    def update(self,measured,reference):
+       
+        self.measured = measured
+        self.reference = reference
+
+        #calculate error
+        self.error = self.reference - round(self.measured,5)
+        
+        
+        #PID
+        self.prop = self.error
+        #derivator Euler backward 
+        
+      
+        self.derivative = 0
+        #error from the last step (k-1)
+        self.Derivator_prior = self.error
+        #integrator
+        self.integral = self.T * self.error + self.Integral_prior
+        
+        #upravljacka velicina
+        self.u = self.Kp * self.prop + self.Kd * self.derivative + self.Ki * self.integral
+
+
+        if(self.u > self.max_val):  
+            self.u = self.max_val
+            self.integral = self.Integral_prior 
+
+        #negative saturation
+        elif (self.u < self.min_val):
+            self.u = self.min_val
+            self.integral = self.Integral_prior
+
+            
+
+       
+        self.Integral_prior = self.integral
+   
+
+        #vrati upravljacku velicinu
+        return self.u  
+
+class PID_velocity():
+    def __init__(self, Kp, Kd, Ki, T, max_val, min_value):
+
+        self.Kp = Kp
+        self.Kd = Kd
+        self.Ki = Ki
+        
+      
+        self.error = 0
+        self.reference = 0
+        self.prop = 0
+        self.derivative = 0
+        self.integral = 0
+        # *************************
+        
+        self.u = 0
+        #variables in which we save the values of errors that happened the step before
+        self.Derivator_prior = 0
+        self.Integral_prior = 0
+
+        #iteration time
+        self.T = T
+        self.flag = True
+        #granicne vrijednosti
+        self.max_val = max_val
+        self.min_val = min_value
+    
+
+    def update(self,measured_x,measured_y,reference_x,reference_y):
+       
+        self.measured_x = measured_x
+        self.reference_x = reference_x
+        self.measured_y = measured_y
+        self.reference_y = reference_y
+
+        #calculate error
+        self.error = round(math.sqrt(pow(reference_x-measured_x,2)+pow(reference_y-measured_y,2)),2)
+        
+        
+        #PID
+        self.prop = self.error
+        #derivator Euler backward 
+        
+      
+        self.derivative = 0
+        #error from the last step (k-1)
+        self.Derivator_prior = self.error
+        #integrator
+        self.integral = self.T * self.error + self.Integral_prior
+        
+        #upravljacka velicina
+        self.u = self.Kp * self.prop + self.Kd * self.derivative + self.Ki * self.integral
+
+
+        if(self.u > self.max_val):  
+            self.u = self.max_val
+            self.integral = self.Integral_prior 
+
+        #negative saturation
+        elif (self.u < self.min_val):
+            self.u = self.min_val
+            self.integral = self.Integral_prior
+
+            
+
+       
+        self.Integral_prior = self.integral
+   
+
+        #vrati upravljacku velicinu
+        return self.u  
