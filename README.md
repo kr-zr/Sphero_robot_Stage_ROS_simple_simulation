@@ -4,7 +4,7 @@ A package that simulates SpheroSPRK robot using stage_ros simulation. More infor
 
 How to use:
 
-1) Build the package into your existing catkin workspace. More information on creating a catkin workspace available here -> http://wiki.ros.org/catkin/Tutorials/create_a_workspace
+1) Build the package into an existing catkin workspace. More information on creating a catkin workspace available here -> http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
 2) Start ROS in your first terminal.
 
