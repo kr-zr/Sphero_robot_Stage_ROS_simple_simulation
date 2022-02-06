@@ -8,11 +8,11 @@ How to use:
 
 2. Start ROS in your first terminal.
 
-3. Type 'roslaunch sphero_formation simple_setup_sim.launch' in a new terminal.
+3. Type _roslaunch sphero_formation simple_setup_sim.launch_ in a new terminal.
 
 If you want to set a specific linear velocity and orientation for the robot follow these steps:
 
-4. a) Type 'rosrun sphero_formation simple_controller.py' in a new terminal.
+4. a) Type _rosrun sphero_formation simple_controller.py_ in a new terminal.
 
 5. a) To set a certain linear velocity and orientation send geometry_msgs/Twist messages to a topic named /sphero_referenca.
 Only linear.x and angular.z fields of the message matter. Set the desired linear velocity by changing linear.x value of the message.
@@ -23,7 +23,7 @@ in this case it represents orientation, and NOT angular velocity of the robot.
 
 If you want to set a specific point in x-y space for the robot to go to follow these steps:
 
-4. b) Type 'rosrun sphero_formation xy_controller.py' in a new terminal.
+4. b) Type _rosrun sphero_formation xy_controller.py_ in a new terminal.
 
 5. b) To set a point for a robot to go to, send geometry_msgs/Point messages to a topic named /sphero_referentna_tocka.
 Only x and y fields in the message matter, z field won't be read in the program.
